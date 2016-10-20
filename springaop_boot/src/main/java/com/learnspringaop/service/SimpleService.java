@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SimpleService {
 	
-	public void doSomeThing(){
-		
+	public void doSomeThingElse(int i){
+		System.out.println("Inside doSomeThingElse : ");
 	}
 
 }

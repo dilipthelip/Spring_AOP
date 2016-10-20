@@ -1,4 +1,4 @@
-package com.learnspringaop.trace;
+package com.learnspringaop.aspect.trace;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -24,7 +24,7 @@ public class TracingAspect {
 		this.enteringCalled = enteringCalled;
 	}
 	
-	@Before("execution(void doSomeThing())")
+	@Before("execution(* doSomeThingElse(..))")
 	public void entering(JoinPoint joinPoint){
 		enteringCalled = true;
 		System.out.println("inside entering");

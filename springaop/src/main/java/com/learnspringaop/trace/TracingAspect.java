@@ -24,7 +24,7 @@ public class TracingAspect {
 		this.enteringCalled = enteringCalled;
 	}
 	
-	@Before("execution(void doSomeThing())")
+	@Before("execution(* *())")
 	public void entering(JoinPoint joinPoint){
 		enteringCalled = true;
 		System.out.println("inside entering");

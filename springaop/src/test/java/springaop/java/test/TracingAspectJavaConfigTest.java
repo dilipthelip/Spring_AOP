@@ -1,5 +1,8 @@
 package springaop.java.test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +27,9 @@ public class TracingAspectJavaConfigTest {
 
 	@Test()
 	public void aspectIsCalled(){
-		
+		assertFalse(tracingaspect.isEnteringCalled());
 		simpleService.doSomeThing();
-		
+		assertTrue(tracingaspect.isEnteringCalled());
 	}
 
 }
