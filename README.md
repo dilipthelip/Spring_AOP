@@ -16,7 +16,9 @@ execution(* doSomeThingElse(..))
 	.. -> This represents the infinite number of parameters.
 
 
+Types of Advice:
 
+[Advice Types](https://github.com/dilipthelip/Spring_AOP/blob/master/TypesOFAdvice.png)
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 
