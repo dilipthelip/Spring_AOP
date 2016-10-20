@@ -20,6 +20,12 @@ Types of Advice:
 
 [Advice Types](https://github.com/dilipthelip/Spring_AOP/blob/master/TypesOFAdvice.png)
 
+**Before Advice:**
+
+Executed before method.
+Exception Prevents method to be executed.
+
+
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 
 @Configuration -> indicates that the class can be used by the Spring IoC container as a source of bean definitions.This annotation is repsonsible for making the class behave as a equivalenet to the Spring Bean XML file.
