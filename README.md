@@ -34,6 +34,11 @@ Execute after the method exexutes successfully.
 Executed if the method threw an exception.
 Exception will be proogated to the caller
 
+**After Returning Advice:**
+
+Executed if the method returns successfully.
+Can access the result.
+Type Safe. You can define for which return type this particular advice can be executed.
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 

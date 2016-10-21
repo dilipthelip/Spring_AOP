@@ -15,5 +15,11 @@ public class SimpleService {
 			throw new RuntimeException();
 		}
 	}
+	
+	
+		public String afterReturning() throws RuntimeException{
+		
+			return "Success";
+	}
 
 }

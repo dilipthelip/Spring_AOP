@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.learnspringaop.aspect.trace.AfterThrowingAspect;
+import com.learnspringaop.aspect.trace.AfterReturningAspect;
 import com.learnspringaop.aspect.trace.TracingAspect;
 import com.learnspringaop.service.SimpleService;
 
@@ -24,6 +25,9 @@ public class SpringaopBootApplicationTests {
 	
 	@Autowired
 	private AfterThrowingAspect afterThrowingaspect;
+	
+	@Autowired
+	private	AfterReturningAspect afterReturningAspect;
 	
 	@Autowired
 	private SimpleService simpleService;
@@ -41,6 +45,19 @@ public class SpringaopBootApplicationTests {
 		assertFalse(tracingaspect.isExitCalled());
 		simpleService.doSomeThingElse(1);
 		assertTrue(tracingaspect.isExitCalled());
+	}
+	
+	@Test
+	public void afterReturning() {
+		assertFalse(afterReturningAspect.isAfterReturning());
+		try {
+			simpleService.afterReturning();
+			assertTrue(afterReturningAspect.isAfterReturning());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 	}
 	
 	@Test
