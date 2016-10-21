@@ -26,10 +26,24 @@ public class SpringaopBootApplicationTests {
 	
 
 	@Test
-	public void doSomeThingElse() {
+	public void beforeAdviceTest() {
 		assertFalse(tracingaspect.isEnteringCalled());
 		simpleService.doSomeThingElse(1);
 		assertTrue(tracingaspect.isEnteringCalled());
+	}
+	
+	@Test
+	public void afterAdviceTest() {
+		assertFalse(tracingaspect.isExitCalled());
+		simpleService.doSomeThingElse(1);
+		assertTrue(tracingaspect.isExitCalled());
+	}
+	
+	//@Test(expected=RuntimeException.class)
+	public void afterAdviceTestThrowsException() {
+		assertFalse(tracingaspect.isExitCalled());
+		simpleService.doSomeThingElse(1);
+		assertTrue(tracingaspect.isExitCalled());
 	}
 
 }
