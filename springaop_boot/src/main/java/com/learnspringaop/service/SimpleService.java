@@ -8,5 +8,12 @@ public class SimpleService {
 	public void doSomeThingElse(int i){
 		System.out.println("Inside doSomeThingElse : ");
 	}
+	
+	public void throwsRuntimeException(boolean flag) throws RuntimeException{
+		
+		if(flag){
+			throw new RuntimeException();
+		}
+	}
 
 }

@@ -32,7 +32,7 @@ Execute after the method exexutes successfully.
 **After Throwing Advice:**
 
 Executed if the method threw an exception.
-Exception will be proogated to the called
+Exception will be proogated to the caller
 
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
