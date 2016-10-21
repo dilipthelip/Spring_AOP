@@ -40,6 +40,19 @@ Executed if the method returns successfully.
 Can access the result.
 Type Safe. You can define for which return type this particular advice can be executed.
 
+**Around Advice:**
+Wraps around the method.
+Can prevent the original method from being called.
+Only advice that can catch exceptions
+Only advice that can modify return value.
+Current method call is passed to the advice - ProceedingJoinPoint
+Can be executed or skipped if you dont call the proceed method on the ProceedingJointPoint.
+
+This is the most powerful advice. It can be used instead of a before or after advice. Around is powerful and complex.
+
+The recommendation is to use the appropriate advice.
+
+
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 
 @Configuration -> indicates that the class can be used by the Spring IoC container as a source of bean definitions.This annotation is repsonsible for making the class behave as a equivalenet to the Spring Bean XML file.
