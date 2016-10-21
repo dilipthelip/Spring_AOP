@@ -8,15 +8,7 @@ Aspects are Spring beans that marks them with @Aspect annotation.
 
 Advices are methods.
 
-PointCut:					
-execution(* doSomeThingElse(..))
-		  |				|
-	Represents the Represents the methodName
-	return type
-	.. -> This represents the infinite number of parameters.
-
-
-Types of Advice:
+## Types of Advice:
 
 [Advice Types](https://github.com/dilipthelip/Spring_AOP/blob/master/TypesOFAdvice.png)
 
@@ -52,6 +44,13 @@ Can be executed or skipped if you dont call the proceed method on the Proceeding
 This is the most powerful advice. It can be used instead of a before or after advice. Around is powerful and complex.
 
 The recommendation is to use the appropriate advice.
+
+PointCut:					
+execution(* doSomeThingElse(..))
+		  |				|
+	Represents the Represents the methodName
+	return type
+	.. -> This represents the infinite number of parameters.
 
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
