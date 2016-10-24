@@ -59,15 +59,19 @@ execution(* hello()) 			-> Execution of method hello, no parameters and any retu
 execution(* hello(int , int )) 	-> Execution of method hello, two int parameters and any return type.
 execution(* hello(*)) 			-> Execution of method hello, one parameter of any type and any return type.
 
-**Package and Classes:**
-execution(int com.xyz.Hello.execute(int))	->	Execution of method execute in Hello class in package com.xyz, One int parameter, int return type.
-execution(* com.xyz.*Service.*(..))			->	Execution of any method in class file that ends with name Service, in package com.xyz , any parameter, any return type.
-execution(* com.xyz..*Service.*(..))		->	Execution of any method in class file that ends with name Service, in package com.xyz or Subpackage, any parameter, any return type.
-execution(* *.*(..))						->	Execution of any method, any parameters in any class,in the default package only.
-execution(* *..*(..))						->	Execution of any method, any parameters in any class,in any package or subpackage.
+**Package and Classes:**  
+execution(int com.xyz.Hello.execute(int))	->	Execution of method execute in Hello class in package com.xyz, One int parameter, int return type.  
+execution(* com.xyz.*Service.*(..))			->	Execution of any method in class file that ends with name Service, in package com.xyz , any parameter, any return type.  
+execution(* com.xyz..*Service.*(..))		->	Execution of any method in class file that ends with name Service, in package com.xyz or Subpackage, any parameter, any return type.  
+execution(* *.*(..))						->	Execution of any method, any parameters in any class,in the default package only.  
+execution(* *..*(..))						->	Execution of any method, any parameters in any class,in any package or subpackage.  
+ 
 
-**Spring Bean names as Pointcuts:**
-@Around("bean(*Service)") -> This point cut is executed for all classes whose bean name ends with Service.
+**Spring Bean names as Pointcuts:**  
+@Around("bean(*Service)") -> This point cut is executed for all classes whose bean name ends with Service.  
+
+
+
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 
