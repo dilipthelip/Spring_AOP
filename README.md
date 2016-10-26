@@ -71,6 +71,11 @@ execution(* *..*(..))						->	Execution of any method, any parameters in any cla
 **Spring Bean names as Pointcuts:**  
 @Around("bean(*Service)") -> This point cut is executed for all classes whose bean name ends with Service.  
 
+**@PointCut:**  
+How to reuse pointCuts ?  
+  
+
+
 
 
 
