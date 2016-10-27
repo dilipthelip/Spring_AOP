@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class BeanNameAspect {
 
-	@Around("bean(*Service)")
+	//@Around("bean(*Service)")
 	public Object beanNameAdvice(ProceedingJoinPoint joinPoint) throws Throwable{
 		
 		String methodInformation = joinPoint.getStaticPart().getSignature().toString();

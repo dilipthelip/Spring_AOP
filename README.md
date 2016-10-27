@@ -70,14 +70,38 @@ execution(* *..*(..))						->	Execution of any method, any parameters in any cla
 
 **Spring Bean names as Pointcuts:**  
 @Around("bean(*Service)") -> This point cut is executed for all classes whose bean name ends with Service.  
+BeanNameAspect.java  
 
 **@PointCut:**  
 How to reuse pointCuts ?  
   
+**Architecture Problems :**  
 
+For each Call to the service :  
+	Call must be traced
+	Exception should be logged.  
 
+Add AOP only to specific parts of the application.
 
+Define Architecute as pointcuts.    
+Define behavior using advices.  
+Add advices to correct Pointcuts.  
 
+Spring org.springframework.sterotype package has the below annotations.
+@Service  
+@Component  
+@Repository  
+
+The above annotations are no different for Spring Dependency injection. Those will be treated as a regular bean.  
+
+execution(* (@org.springframework.stereotype.Repository *).*(..))	-> This pointcut will be invoked for all the Classes that are annotated with @Repository annotation.
+execution(* (@org.springframework.stereotype.Service *).*(..))	-> This pointcut will be invoked for all the Classes that are annotated with @Service annotation.
+
+**Expressing Architecutre with Annotations:**
+Check the below classes for the Architecture level exception handling that covers all the class that are annotated with @Service and @Repository.
+ExceptionLoggingAspect
+ArchitecutreService
+ArchitectureServiceTest
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 
