@@ -94,14 +94,29 @@ Spring org.springframework.sterotype package has the below annotations.
 
 The above annotations are no different for Spring Dependency injection. Those will be treated as a regular bean.  
 
-execution(* (@org.springframework.stereotype.Repository *).*(..))	-> This pointcut will be invoked for all the Classes that are annotated with @Repository annotation.
+**Expressing Architecutre with Annotations:**  
+
+execution(* (@org.springframework.stereotype.Repository *).*(..))	-> This pointcut will be invoked for all the Classes that are annotated with @Repository annotation.  
 execution(* (@org.springframework.stereotype.Service *).*(..))	-> This pointcut will be invoked for all the Classes that are annotated with @Service annotation.
 
-**Expressing Architecutre with Annotations:**
-Check the below classes for the Architecture level exception handling that covers all the class that are annotated with @Service and @Repository.
-ExceptionLoggingAspect
-ArchitecutreService
-ArchitectureServiceTest
+Check the below classes for the Architecture level exception handling that covers all the class that are annotated with @Service and @Repository.  
+ExceptionLoggingAspect  
+ArchitecutreService  
+ArchitectureServiceTest  
+
+**Expressing Architecutre with packageNames:**  
+
+execution(* com.learnspringaop..repository.*.*(..))	-> Any class in a subpackage repository of com.learnspringaop.  
+.. -> This double dot is to match any number of packages/folders between learnspringaop and repository package.  
+execution(* com.learnspringaop..service.*.*(..))	-> Any class in a subpackage repository of com.learnspringaop.
+
+**How aspects are added to objects?**  
+Proxies are created around the original object when AOP is enabled.  
+
+
+Proxies are created either via Dynamic proxies(part of JDK) or CGLIB proxies.    
+Local method calls never reaches the proxy and advice will never be executed.  
+
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 
