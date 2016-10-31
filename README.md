@@ -118,6 +118,21 @@ Proxies are created around the original object when AOP is enabled.
 
 Proxies are created either via Dynamic proxies(part of JDK) or CGLIB proxies.    
 Local method calls never reaches the proxy and advice will never be executed.  
+For Example :- In the below case if the call is made via callsTransactionalMethod() then the Spring proxy will never come in to picture and because this is like a local method call.  
+
+@Service  
+public class LocalMethodService {  
+
+	@Transactional  
+	public void transactionalMethod(){   
+		
+	}  
+	
+	public void callsTransactionalMethod(){  
+		transactionalMethod();  
+	}  
+}  
+
 
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
