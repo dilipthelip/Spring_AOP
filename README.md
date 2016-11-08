@@ -174,7 +174,12 @@ A different system for AOP in java.
 	>	Only the bean PointCut expressions wont work.
 			'@Around("bean(*Service)")'    
 			
-
+AspectJ used Bytecode Weaving.  
+i.e., classes and aspect are woven in to the Byte code.  
+Weaving might happen :
+	When classes are loaded.  
+	When code is compiled.  
+	
 
 
 
