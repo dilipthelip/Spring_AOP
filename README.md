@@ -1,7 +1,7 @@
 # Spring_AOP
 
 Aspect = Advice + PointCut
-Advice - What code is executed 
+Advice - What code is executed  
 PointCut= Where the code is executed.
 
 Aspects are Spring beans that marks them with @Aspect annotation.
@@ -111,7 +111,7 @@ execution(* com.learnspringaop..repository.*.*(..))	-> Any class in a subpackage
 execution(* com.learnspringaop..service.*.*(..))	-> Any class in a subpackage repository of com.learnspringaop.
 
 **How aspects are added to objects?**  
-Proxies are created around the original object when AOP is enabled.  
+Proxies are created around the original object when AOP is enabled. Proxies are just like original objects but advices are added on top of it.  
 
 	
 [How aspects are created ?](https://github.com/dilipthelip/Spring_AOP/blob/master/How%20Aspects%20are%20added%20to%20Objects.png)  
