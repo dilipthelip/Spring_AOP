@@ -176,11 +176,11 @@ A different system for AOP in java.
 			
 AspectJ used Bytecode Weaving.  
 i.e., classes and aspect are woven in to the Byte code.  
-Weaving might happen :
+Weaving might happen :  
 	When classes are loaded.  
 	When code is compiled.  
 	
-
+[How weaving happens?](https://github.com/dilipthelip/Spring_AOP/blob/master/AspecTJ_1.png)  
 
 
 
