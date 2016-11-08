@@ -176,15 +176,29 @@ A different system for AOP in java.
 			
 AspectJ used Bytecode Weaving.  
 i.e., classes and aspect are woven in to the Byte code.  
+
 Weaving might happen :  
 	When classes are loaded.  
 	When code is compiled.  
+	Check the below picture.  
 	
 [How weaving happens?](https://github.com/dilipthelip/Spring_AOP/blob/master/AspecTJ_1.png)  
 
+### Load time Weaving :  
 
+Aspects are woven when classes are loaded.  
+Weaving configured by META-INF/aop.xml.  
 
+<aspectj>  
+	<weaver>  
+		<include within="com.learnaspectjaop..*"/>  
+	</weaver>  
+	<aspects>  
+		<aspect name="com.learnspringaspectjaop.aspect.DemoAspect"/>  
+	</aspects>   
+<aspectj>  
 
+AspectJ need to modify the byte code.
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
 
