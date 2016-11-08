@@ -166,6 +166,16 @@ No private or protected methods.
 Works only on methods from outside.  
 We cannot use Spring AOP without spring dependency injection.  
 
+## AspectJ:  
+A different system for AOP in java.  
+	>	Faster  
+	>	Powerful  
+	>	Spring AOP uses the same syntax.
+	>	Only the bean PointCut expressions wont work.
+			'@Around("bean(*Service)")'    
+			
+
+
 
 
 
