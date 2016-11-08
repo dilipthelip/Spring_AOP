@@ -133,6 +133,42 @@ public class LocalMethodService {
 	}  
 }  
 
+CGLIB vs Dynamic Proxies:  
+Check the below classed to understand.  
+DemoClassImpl  
+DemoClass  
+DemoClassTest  
+
+### How proxies are implemented ?  
+
+**CGLIB:**  
+Subclasses dynamically create subclass.  
+Subclass implements proxy.  
+
+**Dynamic proxy:**  
+Feature of the JDK.  
+For Interfaces only.
+
+**Usage of CGLIB:**  
+If no interfaxce is implemented.  
+if proxy target class is set to true.  
+
+If a interface is available then JDK dynamic proxies will create proxy only for the Interface. If you do not have interface that have the method declared in it then   
+this will fail.  
+
+Fix in this case:
+Use CGLIB instead of JDK dynamic proxy.  
+Set the attribute @EnableAspectJAutoProxy(proxyTargetClass=true) to force Spring to use CGLIB instead of Dynamic proxy.  
+
+### Limitation of AOP Proxy model:  
+Works only on public methods.  
+No private or protected methods.  
+Works only on methods from outside.  
+We cannot use Spring AOP without spring dependency injection.  
+
+
+
+
 
 
 SimpleAspectConfiguration -> This class acts as a Spring base class to create the Spring Beans by scanning the package.
