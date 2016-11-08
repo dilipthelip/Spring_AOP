@@ -189,14 +189,14 @@ Weaving might happen :
 Aspects are woven when classes are loaded.  
 Weaving configured by META-INF/aop.xml.  
 
-<aspectj>  
-	<weaver>  
-		<include within="com.learnaspectjaop..*"/>  
-	</weaver>  
-	<aspects>  
-		<aspect name="com.learnspringaspectjaop.aspect.DemoAspect"/>  
-	</aspects>   
-<aspectj>  
+`<aspectj>`  
+	`<weaver>`  
+		`<include within="com.learnaspectjaop..*"/>`  
+	`</weaver>`  
+	`<aspects>`  
+		`<aspect name="com.learnspringaspectjaop.aspect.DemoAspect"/>`  
+	`</aspects>`   
+`<aspectj>`    
 
 AspectJ need to modify the byte code.
 
