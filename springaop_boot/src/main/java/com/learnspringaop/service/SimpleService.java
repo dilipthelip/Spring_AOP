@@ -27,7 +27,7 @@ public class SimpleService {
 			//return "Success";
 			System.out.println("Inside aroundAdvice : ");
 			
-			return "Return Around Advice";
+			return "Return Around Service";
 	}
 		
 		public String beanNameAdvice(){

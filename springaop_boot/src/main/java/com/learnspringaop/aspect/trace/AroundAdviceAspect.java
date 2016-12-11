@@ -17,6 +17,7 @@ public class AroundAdviceAspect {
 		System.out.println("Method Information : "+ methodInformation);
 		
 		try {
+			joinPoint.proceed();
 			return "From Around Advice";
 		} catch (Exception e) {
 			// TODO: handle exception

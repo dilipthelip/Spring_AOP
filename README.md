@@ -23,27 +23,60 @@ Execute after the method exexutes successfully.
 
 **After Throwing Advice:**
 
-Executed if the method threw an exception.
-Exception will be proogated to the caller
+This gets executed only when the runtime exception is thrown.  
+**ex** -> This represents the exception. It should not be any value other than ex.  
+
+```
+@AfterThrowing(pointcut="execution(* throwsRuntimeException(..))",throwing="ex" )
+public void afterThrowingAspect(RuntimeException ex){
+	afterThrowing=true;
+	System.out.println("Inside afterThrowingAspect : ");
+	System.err.println("The Exception is : "+ ex);
+}
+```
+
+Executed if the method threw an exception.  
+Exception will be proogated to the caller.  
 
 **After Returning Advice:**
+```
+/**
+	 * The argument variable and the returning value inside @AfterReturning annotation should match.
+	 * @param str
+	 */
+	@AfterReturning(pointcut="execution(* afterReturning())",returning="str" )
+	public void afterThrowingAspect(String str){
+		afterReturning=true;
+		System.out.println("Returning String is : "+ str);
+	}
 
-Executed if the method returns successfully.
-Can access the result.
-Type Safe. You can define for which return type this particular advice can be executed.
+```
+-	Executed if the method returns successfully.  
+-	Can access the result.
+-	Type Safe. You can define for which return type this particular advice can be executed.
+-	This cannot change the result and this cannot throw any additional exception.
 
 **Around Advice:**
 
-Wraps around the method.
-Can prevent the original method from being called.
-Only advice that can catch exceptions
-Only advice that can modify return value.
-Current method call is passed to the advice - ProceedingJoinPoint
-Can be executed or skipped if you dont call the proceed method on the ProceedingJointPoint.
+-	Wraps around the method.  
+-	Can prevent the original method from being called.
+-	Only advice that can catch exceptions
+-	Only advice that can modify return value.
+-	Current method call is passed to the advice - ProceedingJoinPoint
+-	Can be executed or skipped if you dont call the proceed method on the ProceedingJointPoint.
 
 This is the most powerful advice. It can be used instead of a before or after advice. Around is powerful and complex.
 
 The recommendation is to use the appropriate advice.
+
+## Spring Boot Configuration:
+
+```
+@SpringBootApplication
+@EnableAspectJAutoProxy(proxyTargetClass = true) // This is mandatory to let spring to use CGLIB proxies instead of //Dynamic proxies.
+@EnableTransactionManagement
+@ComponentScan(basePackages="com.learnspringboottransactions")
+```
 
 ## PointCut:					
 execution(* doSomeThingElse(..))
@@ -66,7 +99,7 @@ execution(* com.xyz.*Service.*(..))			->	Execution of any method in class file t
 execution(* com.xyz..*Service.*(..))		->	Execution of any method in class file that ends with name Service, in package com.xyz or Subpackage, any parameter, any return type.  
 execution(* *.*(..))						->	Execution of any method, any parameters in any class,in the default package only.  
 execution(* *..*(..))						->	Execution of any method, any parameters in any class,in any package or subpackage.  
- 
+
 
 **Spring Bean names as Pointcuts:**  
 @Around("bean(*Service)") -> This point cut is executed for all classes whose bean name ends with Service.  
@@ -74,7 +107,7 @@ BeanNameAspect.java
 
 **@PointCut:**  
 How to reuse pointCuts ?  
-  
+
 **Architecture Problems :**  
 
 For each Call to the service :  
@@ -113,7 +146,7 @@ execution(* com.learnspringaop..service.*.*(..))	-> Any class in a subpackage re
 **How aspects are added to objects?**  
 Proxies are created around the original object when AOP is enabled. Proxies are just like original objects but advices are added on top of it.  
 
-	
+
 [How aspects are created ?](https://github.com/dilipthelip/Spring_AOP/blob/master/How%20Aspects%20are%20added%20to%20Objects.png)  
 
 Proxies are created either via Dynamic proxies(part of JDK) or CGLIB proxies.    
@@ -125,9 +158,9 @@ public class LocalMethodService {
 
 	@Transactional  
 	public void transactionalMethod(){   
-		
+
 	}  
-	
+
 	public void callsTransactionalMethod(){  
 		transactionalMethod();  
 	}  
@@ -173,7 +206,7 @@ A different system for AOP in java.
 	>	Spring AOP uses the same syntax.
 	>	Only the bean PointCut expressions wont work.
 			'@Around("bean(*Service)")'    
-			
+
 AspectJ used Bytecode Weaving.  
 i.e., classes and aspect are woven in to the Byte code.  
 
@@ -181,7 +214,7 @@ Weaving might happen :
 	When classes are loaded.  
 	When code is compiled.  
 	Check the below picture.  
-	
+
 [How weaving happens?](https://github.com/dilipthelip/Spring_AOP/blob/master/AspecTJ_1.png)  
 
 ### Load time Weaving :  
